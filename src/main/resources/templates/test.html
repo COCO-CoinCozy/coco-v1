@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header, .asset-status, .financial-assets, .real-estate-assets {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+        .asset-status, .financial-assets, .real-estate-assets {
+            display: flex;
+            justify-content: space-between;
+        }
+        table {
+            width: 48%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .chart {
+            width: 45%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <table>
+            <tr>
+                <th>계좌현황</th>
+            </tr>
+            <tr>
+                <td>비상금관리</td>
+            </tr>
+            <tr>
+                <td>예금관리</td>
+            </tr>
+            <tr>
+                <td>적금관리</td>
+            </tr>
+            <tr>
+                <td>부채관리</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>저축계획</th>
+            </tr>
+            <tr>
+                <td>목표금액</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>시작금액</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>필요금액</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>시작일</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>목표일</td>
+                <td>2024-06-09</td>
+            </tr>
+            <tr>
+                <td>현재일</td>
+                <td>2024-06-09</td>
+            </tr>
+            <tr>
+                <td>총 기간</td>
+                <td>0개월</td>
+            </tr>
+            <tr>
+                <td>남은기간</td>
+                <td>#NUM!</td>
+            </tr>
+            <tr>
+                <td>모은금액</td>
+                <td>55,427,083</td>
+            </tr>
+            <tr>
+                <td>남은금액</td>
+                <td>55,427,083</td>
+            </tr>
+            <tr>
+                <td>달성률</td>
+                <td>#DIV/0!</td>
+            </tr>
+            <tr>
+                <td>월 목표저축액</td>
+                <td>#NUM!</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="asset-status">
+        <table>
+            <tr>
+                <th>자산현황</th>
+            </tr>
+            <tr>
+                <td>금융자산 총계</td>
+                <td>19,700,000</td>
+            </tr>
+            <tr>
+                <td>부동산자산 총계</td>
+                <td>68,800,000</td>
+            </tr>
+            <tr>
+                <td>부채</td>
+                <td>33,072,917</td>
+            </tr>
+            <tr>
+                <td>순자산</td>
+                <td>55,427,083</td>
+            </tr>
+            <tr>
+                <td>순자산 대비 부채비율</td>
+                <td>60%</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>금융자산</th>
+            </tr>
+            <tr>
+                <td>장기</td>
+                <td>3년 초과, 주택청약, 퇴직연금 등</td>
+                <td>7,700,000</td>
+                <td>39%</td>
+            </tr>
+            <tr>
+                <td>중기</td>
+                <td>3년이하 예적금 등</td>
+                <td>0</td>
+                <td>0%</td>
+            </tr>
+            <tr>
+                <td>단기</td>
+                <td>입출금, 비상금, 3년미만 예적금 등</td>
+                <td>12,000,000</td>
+                <td>61%</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">계</td>
+
+                <td>19,700,000</td>
+                <td>100%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="financial-assets">
+        <table>
+            <tr>
+                <th>부동산자산</th>
+            </tr>
+            <tr>
+                <td>No.</td>
+                <td>내용</td>
+                <td>금액</td>
+                <td>비율</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>전세보증금</td>
+                <td>43,800,000</td>
+                <td>64%</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>자동차(추정)</td>
+                <td>25,000,000</td>
+                <td>36%</td>
+            </tr>
+            <tr>
+                <td>계</td>
+                <td>-</td>
+                <td>68,800,000</td>
+                <td>100%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="charts">
+        <div class="chart">
+            <h3>전체 자산 현황</h3>
+            <img src="https://via.placeholder.com/300" alt="Pie Chart Placeholder">
+        </div>
+        <div class="chart">
+            <h3>금융자산 현황</h3>
+            <img src="https://via.placeholder.com/300" alt="Pie Chart Placeholder">
+        </div>
+    </div>
+</div>
+</body>
+</html>
