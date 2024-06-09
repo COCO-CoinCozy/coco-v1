@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="login-container">
+    <h2>Login</h2>
+    <form action="/loginProcess" method="post">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <div class="signup-container">
+        <p>Don't have an account? <a href="/join">Sign Up</a></p>
+    </div>
+</div>
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container {
+        background: white;
+        padding: 2em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 1em;
+        color: #333;
+    }
+
+    .input-group {
+        margin-bottom: 1em;
+        text-align: left;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 0.5em;
+        color: #555;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.75em;
+        border: none;
+        border-radius: 4px;
+        background: #007bff;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    .signup-container {
+        margin-top: 1em;
+    }
+
+    .signup-container p {
+        margin: 0;
+        color: #555;
+    }
+
+    .signup-container a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .signup-container a:hover {
+        text-decoration: underline;
+    }
+
+</style>
+</html>
