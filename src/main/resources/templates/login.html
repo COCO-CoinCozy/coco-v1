@@ -1,105 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/css/login.css"/>
 </head>
 <body>
-<div class="login-container">
-    <h2>Login</h2>
-    <form action="/loginProcess" method="post">
-        <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>로그인</h2>
+            <p>COCO에 오신 것을 환영합니다.</p>
+
+            <form>
+                <div class="input-group">
+                    <input type="email" placeholder="이메일" required>
+                </div>
+                <div class="input-group password-group">
+                    <input type="password" placeholder="비밀번호" required>
+                    <button type="button" id="togglePassword" class="show-password-btn">&#128065;</button>
+                </div>
+                <div class="options">
+                    <label><input type="checkbox"> 로그인 상태 유지</label>
+                    <label><input type="checkbox"> 이메일 저장하기</label>
+                </div>
+                <button type="submit" class="login-btn">로그인</button>
+            </form>
+
+            <a href="#" class="forgot-password">비밀번호를 잊으셨나요?</a>
+
+            <div class="social-login">
+                <p>또는</p>
+                <div class="social-icons">
+                    <img src="google-icon.png" alt="Google" class="social-icon">
+                    <img src="/icon/kakao_login_small.png" alt="Kakao" class="social-icon">
+                    <img src="apple-icon.png" alt="Apple" class="social-icon">
+                </div>
+            </div>
+
+<!--            <div class="footer">-->
+<!--                <a href="#">이용약관</a> | <a href="#">개인정보 취급방침</a>-->
+<!--                <p>&copy; Realbyte Inc.</p>-->
+<!--            </div>-->
         </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <div class="signup-container">
-        <p>Don't have an account? <a href="/join">Sign Up</a></p>
     </div>
-</div>
 </body>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f0f0f0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    .login-container {
-        background: white;
-        padding: 2em;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        width: 300px;
-        text-align: center;
-    }
-
-    h2 {
-        margin-bottom: 1em;
-        color: #333;
-    }
-
-    .input-group {
-        margin-bottom: 1em;
-        text-align: left;
-    }
-
-    .input-group label {
-        display: block;
-        margin-bottom: 0.5em;
-        color: #555;
-    }
-
-    .input-group input {
-        width: 100%;
-        padding: 0.5em;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    button {
-        width: 100%;
-        padding: 0.75em;
-        border: none;
-        border-radius: 4px;
-        background: #007bff;
-        color: white;
-        font-size: 1em;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #0056b3;
-    }
-
-    .signup-container {
-        margin-top: 1em;
-    }
-
-    .signup-container p {
-        margin: 0;
-        color: #555;
-    }
-
-    .signup-container a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .signup-container a:hover {
-        text-decoration: underline;
-    }
-
-</style>
 </html>
+
+

@@ -22,7 +22,8 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/", "/login", "/loginProcess", "/join", "/joinProcess").permitAll()
+                        .requestMatchers("/login", "/loginProcess", "/join", "/joinProcess").permitAll()
+                        .requestMatchers("/css/**", "/icon/**", "/js/**").permitAll() // CSS 파일 접근 허용
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated()
