@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
                 .formLogin((auth) -> auth
                         .loginPage("/login")
-                        .loginProcessingUrl("/login")
+                        .loginProcessingUrl("/loginProcess")
                         .permitAll());
 
         http
