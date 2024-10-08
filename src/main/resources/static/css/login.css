@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.field-error {
+    border-color: #dc3545;
+    color: #dc3545;
+    font-size: 8px;
+    text-align: left;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
@@ -19,6 +26,18 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
+}
+
+.password-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .login-box {
@@ -52,15 +71,17 @@ body {
     font-size: 16px;
 }
 
-.password-group .show-password-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
+.input-group-password {
+    position: relative;
+}
+
+.input-group-password input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
 }
 
 .options {
@@ -78,6 +99,18 @@ body {
     border: none;
     color: white;
     background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #67a7f5;
+    border: none;
+    color: white;
+    background-color: #67a7f5;
     border-radius: 5px;
     cursor: pointer;
 }

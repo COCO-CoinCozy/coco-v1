@@ -11,26 +11,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class JoinService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     public void joinProcess(JoinDTO joinDTO) {
-
-
-        //db에 이미 동일한 username을 가진 회원이 존재하는지?
-
 
         UserEntity data = new UserEntity();
 
         data.setUsername(joinDTO.getUsername());
+        data.setEmail(joinDTO.getEmail());
         data.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
         data.setRole("ROLE_USER");
 
-
         userRepository.save(data);
     }
+
+    public boolean validateEmailDuplication(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    public boolean validateUserNameDuplication(String userName) {
+        return userRepository.existsByUsername(userName);
+    }
+
+
+
+
 }
