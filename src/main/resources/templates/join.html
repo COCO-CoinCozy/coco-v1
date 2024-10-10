@@ -1,66 +1,117 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>회원가입</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
     <style>
         .field-error {
             border-color: #dc3545;
             color: #dc3545;
-            font-size: 8px;
+            font-size: 15px;
             text-align: left;
         }
     </style>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <h2>회원가입</h2>
-            <form action="/joinProcess" method="post" th:object="${user}">
-                <div class="input-group">
-                    <input type="text" id="username" th:field="*{username}" placeholder="닉네임" th:errorclass="field-error">
-                    <div class="field-error" th:errors="${user.username}">
-                        닉네임 오류
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" action="/joinProcess" method="post" th:object="${user}">
+                                <div class="form-group">
+                                    <input type="text" id="username" th:field="*{username}" placeholder="닉네임" class="form-control form-control-user" th:errorclass="field-error">
+                                    <div class="field-error" th:errors="${user.username}">
+                                        닉네임 오류
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="email" th:field="*{email}" placeholder="이메일" th:errorclass="field-error">
+                                    <div class="field-error" th:errors="${user.email}">
+                                        이메일 오류
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="password" th:field="*{password}" placeholder="비밀번호" th:errorclass="field-error">
+                                    <div class="field-error" th:errors="${user.password}">
+                                        비밀번호 오류
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="showPasswordCheckbox">
+                                        <label class="custom-control-label" for="showPasswordCheckbox">비밀번호 표시</label>
+                                    </div>
+                                </div>
+                                <input type="submit" value="회원가입" class="btn btn-primary btn-user btn-block"/>
+                                <hr>
+                                <a href="main.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="main.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="input-group">
-                    <input type="text" id="email" th:field="*{email}" placeholder="이메일" th:errorclass="field-error">
-                    <div class="field-error" th:errors="${user.email}">
-                        이메일 오류
-                    </div>
-                </div>
-
-                <div class="input-group-password">
-                    <input type="password" id="password" th:field="*{password}" placeholder="비밀번호" th:errorclass="field-error">
-                    <div class="field-error" th:errors="${user.password}">
-                        비밀번호 오류
-                    </div>
-                </div>
-
-                <div class="checkbox-wrapper">
-                    <label>
-                        <input type="checkbox" id="showPasswordCheckbox"> 비밀번호 표시
-                    </label>
-                </div>
-                <input type="submit" value="회원가입" class="join-btn"/>
-            </form>
+            </div>
         </div>
+
     </div>
 
-<script>
-    document.getElementById('showPasswordCheckbox').addEventListener('change', function() {
-        const passwordInput = document.getElementById('password');
-        if (this.checked) {
-            passwordInput.setAttribute('type', 'text');
-        } else {
-            passwordInput.setAttribute('type', 'password');
-        }
-    });
-</script>
-</body>
-</html>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        document.getElementById('showPasswordCheckbox').addEventListener('change', function() {
+            const passwordInput = document.getElementById('password');
+            if (this.checked) {
+                passwordInput.setAttribute('type', 'text');
+            } else {
+                passwordInput.setAttribute('type', 'password');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

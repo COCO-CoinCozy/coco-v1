@@ -1,8 +1,8 @@
 package com.danghouse.cocov1.service;
 
-
-import com.danghouse.cocov1.dto.JoinDTO;
+import com.danghouse.cocov1.dto.JoinDto;
 import com.danghouse.cocov1.entity.UserEntity;
+import com.danghouse.cocov1.enums.Role;
 import com.danghouse.cocov1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,14 +21,14 @@ public class JoinService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public void joinProcess(JoinDTO joinDTO) {
+    public void joinProcess(JoinDto joinDto) {
 
         UserEntity data = new UserEntity();
 
-        data.setUsername(joinDTO.getUsername());
-        data.setEmail(joinDTO.getEmail());
-        data.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
-        data.setRole("ROLE_USER");
+        data.setUsername(joinDto.getUsername());
+        data.setEmail(joinDto.getEmail());
+        data.setPassword(bCryptPasswordEncoder.encode(joinDto.getPassword()));
+        data.setRole(Role.ROLE_ADMIN);
 
         userRepository.save(data);
     }
