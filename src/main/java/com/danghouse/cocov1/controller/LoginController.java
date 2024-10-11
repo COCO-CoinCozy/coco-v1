@@ -13,6 +13,6 @@ public class LoginController {
     }
     @PostMapping("/loginProcess")
     public String loginProcess() {
-        return "admin";
+        return "login";
     }
 }

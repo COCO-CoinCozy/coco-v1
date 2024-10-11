@@ -1,5 +1,6 @@
 package com.danghouse.cocov1.entity;
 
+import com.danghouse.cocov1.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,5 +22,6 @@ public class UserEntity {
 
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
