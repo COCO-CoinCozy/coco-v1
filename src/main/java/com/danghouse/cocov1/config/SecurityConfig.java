@@ -1,6 +1,7 @@
 package com.danghouse.cocov1.config;
 
 import com.danghouse.handler.SignInFailureHandler;
+import com.danghouse.handler.SignInSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -16,6 +19,11 @@ public class SecurityConfig {
     @Bean
     public AuthenticationFailureHandler signInFailureHandler() {
         return new SignInFailureHandler();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler signInSuccessHandler() {
+        return new SignInSuccessHandler();
     }
 
     @Bean
@@ -33,24 +41,28 @@ public class SecurityConfig {
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/menu/**").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
-                        .anyRequest().authenticated()
-                );
+                        .anyRequest().authenticated());
 
         //custom login
         http
                 .formLogin((auth) -> auth
                         .loginPage("/login")
                         .loginProcessingUrl("/loginProcess")
-                        .failureHandler(signInFailureHandler())
-                        .defaultSuccessUrl("/menu", true)
-                        .permitAll());
+                        .successHandler(signInSuccessHandler())
+                        .failureHandler(signInFailureHandler()));
+
+        http
+                .logout((auth) -> auth
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/"));
 
         http
                 .csrf((auth) -> auth.disable());
 
+        //session
         http
                 .sessionManagement((auth) -> auth
-                        .invalidSessionUrl("/login?error=session"));
+                        .invalidSessionUrl("/login"));
 
         //다중로그인 설정
         http
